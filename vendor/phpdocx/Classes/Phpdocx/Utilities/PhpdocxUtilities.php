@@ -56,7 +56,16 @@ class PhpdocxUtilities
     public static function parseConfig()
     {
         if (!isset(self::$_phpdocxConfig)) {
-            self::$_phpdocxConfig = parse_ini_file(dirname(__FILE__) . '/../../../config/phpdocxconfig.ini', true);
+            if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+              // Load secrets file, if available, see https://docs.acquia.com/resource/secrets/
+              $phpdocxconfigfile = sprintf('/mnt/files/%s.%s/phpdocxconfig.ini', $_ENV['AH_SITE_GROUP'],$_ENV['AH_SITE_ENVIRONMENT']);
+            }
+            else {
+              $phpdocxconfigfile = dirname(__FILE__) . '/../../../../../phpdocxconfig.ini';
+            }
+            if (file_exists($phpdocxconfigfile)) {
+              self::$_phpdocxConfig = parse_ini_file($phpdocxconfigfile, true);
+            }
         }
         return self::$_phpdocxConfig;
     }

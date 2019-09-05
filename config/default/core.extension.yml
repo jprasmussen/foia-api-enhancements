@@ -15,7 +15,7 @@ module:
   ctools: 0
   ctools_block: 0
   datetime: 0
-  devel_generate: 0
+  dblog: 0
   diff: 0
   editor: 0
   embed: 0
@@ -96,6 +96,7 @@ module:
   path: 0
   quickedit: 0
   rdf: 0
+  reference_table_formatter: 0
   rest: 0
   restui: 0
   roleassign: 0
@@ -111,6 +112,7 @@ module:
   swiftmailer: 0
   syslog: 0
   system: 0
+  table_field_group: 0
   tablefield: 0
   tablefield_cellspan: 0
   tablefield_required: 0
